@@ -11,6 +11,6 @@ const server = new Server({
 server.route(servicos)
 
 server.start()
-console.log(`Servidor executando na porta: ${server.info.port}`);
+console.log(`Servidor executando na porta: ${server.info.port}`)
 
 module.exports = server
