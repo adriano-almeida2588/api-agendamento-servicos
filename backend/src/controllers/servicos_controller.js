@@ -1,8 +1,20 @@
+'use strict';
+
+import { Servico } from "../models/servicos"
+
 export const ServicoController = {
   index: async (req, h) => {
-    return h.response({"Mensagem":"Teste"})
+    const servicos = await Servico.where({}).fetch({})
+    return h.response({"servicos": servicos})
   },
   create: async (req, h) => {
-    return h.response({"sucesso":"Serviço cadastrado cokm sucesso!"});
+    try {
+      const retornoServico = await new Servico({descricao: "Hidratação capilar"}).save(null, {method: 'insert'})
+      return h.response({"servico": retornoServico});
+      
+    } catch (error) {
+      console.error(error.message);
+            
+    }
   }
 }
