@@ -1,7 +1,5 @@
-class Servicos {
-    async exibir(){
-        await console.log("Chamando método exibir");
-    }
-}
+import { Bookshelf } from "../database";
 
-export default Servicos
+export const Servico = Bookshelf.Model.extend({
+    tableName: 'servicos'
+})
