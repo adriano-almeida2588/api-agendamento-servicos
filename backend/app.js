@@ -1,7 +1,6 @@
-import { Server } from "hapi";
+import { Server } from "hapi"
 import {servicos} from './src/routes/servicos'
 import {usuarios} from './src/routes/usuarios'
-const consign = require("consign")
 
 const server = new Server({
     host: 'localhost',
