@@ -1,13 +1,15 @@
-import { ServicoController } from '../controllers/servicos_controller'
+import ServicoController from '../controllers/servicos_controller'
+const servicoController = new ServicoController()
+
 exports.servicos = [
   {
-    path:'/api/servicos',
-    method:'GET',
-    handler: ServicoController.index
+    path: '/api/servicos',
+    method: 'GET',
+    handler: servicoController.index
   },
   {
-    path:'/api/servicos/create',
+    path: '/api/servicos/create',
     method: 'POST',
-    handler: ServicoController.create
+    handler: servicoController.create
   }
 ]

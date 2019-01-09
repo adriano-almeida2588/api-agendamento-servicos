@@ -1,20 +1,26 @@
-'use strict';
+import Servico from "../models/servicos"
+let servico
 
-import { Servico } from "../models/servicos"
-
-export const ServicoController = {
-  index: async (req, h) => {
-    const servicos = await Servico.where({}).fetch({})
-    return h.response({"servicos": servicos})
-  },
-  create: async (req, h) => {
+class ServicosController {
+  constructor(){
+    servico = new Servico()
+  }
+  async index(req, h){
     try {
-      const retornoServico = await new Servico({descricao: "Hidratação capilar"}).save(null, {method: 'insert'})
-      return h.response({"servico": retornoServico});
-      
+      const servicos = await servico.where({}).fetchAll({})    
+      return h.response({"servicos": servicos})
     } catch (error) {
       console.error(error.message);
-            
+    }
+  }
+  async create(request, h){
+    try {      
+      const retornoServico = await new Servico(request.payload).save(null, {method: 'insert'})
+      return h.response({"servico": retornoServico})
+    } catch (error) {
+      console.error(error.message);  
     }
   }
 }
+
+export default ServicosController
