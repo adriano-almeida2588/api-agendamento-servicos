@@ -4,7 +4,7 @@
   "description": "Api de agendamento de serviços",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node app.js",
+    "start": "nodemon app.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +23,9 @@
     "nodemon": "^1.18.9"
   },
   "dependencies": {
-    "consign": "^0.1.6"
+    "bookshelf": "^0.14.2",
+    "consign": "^0.1.6",
+    "knex": "^0.13.0",
+    "pg": "^7.7.1"
   }
 }
