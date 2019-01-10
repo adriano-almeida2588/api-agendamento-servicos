@@ -1,12 +1,12 @@
 import { Bookshelf } from "../database";
-import { Profissional } from "../models/profissional"
+import { Agenda } from "../models/agenda"
 
 class Servico extends Bookshelf.Model {
     get tableName(){
         return 'servicos'
     }
-    get profissional() {
-        return this.belongsTo(Profissional)
+    profissional() {
+        return this.belongsTo('Agenda')
     }
 }
 
